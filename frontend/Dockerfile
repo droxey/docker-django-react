@@ -1,12 +1,9 @@
 FROM node:6.9.5
 
-# -- Create required folder structure in Docker container.
-RUN mkdir -p /code/frontend
-RUN mkdir /code/frontend/cache
-
 # -- Create /code/frontend directory and add /frontend to it.
 WORKDIR /code/frontend
 ADD . /code/frontend
+RUN mkdir /code/frontend/cache
 
 # -- Set appropriate node permissions on /frontend.
 RUN chown node:node -R .

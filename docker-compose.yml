@@ -33,6 +33,7 @@
        - 8000:8000
      links:
        - db
+       - frontend
      depends_on:
        - db
        - frontend
