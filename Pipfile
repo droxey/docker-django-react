@@ -8,6 +8,7 @@ django = "*"
 python-dotenv = "*"
 django-rest-framework = "*"
 markdown = "*"
+ptvsd = "*"
 django-filter = "*"
 "psycopg2-binary" = "*"
 

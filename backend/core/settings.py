@@ -124,6 +124,8 @@ STATIC_ROOT = os.path.dirname(os.path.join(BASE_DIR, 'static'))
 # docker-django-react: Custom Settings
 # ===
 
+USE_VSCODE_DEBUGGER = bool(int(os.getenv("USE_VSCODE_DEBUGGER", default=0)))
+
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.

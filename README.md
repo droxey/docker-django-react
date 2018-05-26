@@ -4,14 +4,14 @@ Dockerized boilerplate. PostgreSQL 10 database + Django 2.0.x/DRF API backend + 
 
 ## Prerequisites
 
-### Docker Installation
+### Docker
 
 1. Docker
 1. docker-compose
 
 ## Installation
 
-### Docker (Recommended)
+### Docker
 
 1. Clone the repo: `git clone git@github.com:outputs-io/docker-django-react.git your-project-name`
 1. Navigate to the repo directory created in the last step: `cd your-project-name`
@@ -27,3 +27,20 @@ Dockerized boilerplate. PostgreSQL 10 database + Django 2.0.x/DRF API backend + 
     {"token":"a66bfc378fc443f33953c99c3d852bace48094c2"}%
     ```
 1. Write your fancy new Django + React app!
+
+# Debugging Django via VSCode Remote Debugger
+
+Add the following `launch.json` entry:
+
+```json
+  {
+      "name": "Remote Django App",
+      "type": "python",
+      "request": "attach",
+      "localRoot": "${workspaceRoot}",
+      "remoteRoot": "/code/backend",
+      "port": 8010,
+      "secret": "debugger-local-secret",
+      "host": "localhost"
+  }
+```
