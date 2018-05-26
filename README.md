@@ -18,9 +18,6 @@ Dockerized boilerplate. PostgreSQL 10 database + Django 2.0.x/DRF API backend + 
 1. Delete the leftover `.git` directory: `rm .git`. _Remember to `git init` and `git remote add origin <url>` when you're ready to add, commit, and push your code!_
 1. Create a `.env` file by using `.env.sample` as a boilerplate: `cp .env.sample .env` Edit the new `.env` file and augment the variables to match your local environment.
 1. Create a `backend/core/local_settings.py` file by using `backend/core/local_settings.py.sample` as a boilerplate: `cp backend/core/local_settings.py.sample backend/core/local_settings.py` Edit the new `backend/core/local_settings.py` file and augment the variables to match your local environment.
-1. Navigate to the `frontend` directory: `cd frontend`
-1. Run `yarn install` to install all React dependencies.
-1. Run `yarn build` in order to generate the required `build` and `build/static` directories for Django staticfiles.
 1. Execute `docker-compose up`.
 1. Open browser and access `http://localhost:8000` to access the frontend.
 1. Use cURL in a new Terminal tab to test the backend Django API via DRF token authentication:
