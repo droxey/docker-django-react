@@ -1,6 +1,10 @@
 #!/usr/bin/bash
-cd /code/frontend/src
-chown node:node -R .
+
 yarn install --non-interactive
-yarn build
+if [ ! -f /code/frontend/build ]; then
+    echo "[BUILD] Failed to detect build folder. Running yarn build..."
+    cd /code/frontend/src
+    yarn build
+fi
 yarn start
+exec "$@"
