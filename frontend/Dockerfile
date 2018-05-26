@@ -9,7 +9,8 @@ RUN mkdir /code/frontend/cache
 RUN chown node:node -R .
 
 # -- Install yarn, set cache folder, install node_modules, and cleanup.
-RUN npm install -g -s --no-progress yarn && \
-    yarn config set cache-folder /code/frontend/cache && \
-    yarn install --silent --non-interactive && \
-    yarn cache clean
+RUN npm install -g -s --no-progress yarn
+RUN yarn config set cache-folder /code/frontend/cache
+RUN yarn cache clean
+
+WORKDIR /code/frontend

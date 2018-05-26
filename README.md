@@ -19,6 +19,7 @@ Dockerized boilerplate. PostgreSQL 10 database + Django 2.0.x/DRF API backend + 
 1. Create a `.env` file by using `.env.sample` as a boilerplate: `cp .env.sample .env` Edit the new `.env` file and augment the variables to match your local environment.
 1. Create a `backend/core/local_settings.py` file by using `backend/core/local_settings.py.sample` as a boilerplate: `cp backend/core/local_settings.py.sample backend/core/local_settings.py` Edit the new `backend/core/local_settings.py` file and augment the variables to match your local environment.
 1. Execute `docker-compose up`.
+1. Wait until the build finishes. You'll see this message: `dr_example_frontend | Compiled successfully!`
 1. Open browser and access `http://localhost:8000` to access the frontend.
 1. Use cURL in a new Terminal tab to test the backend Django API via DRF token authentication:
     ```bash
