@@ -1,14 +1,5 @@
-set -e
-
-if [ $(docker-compose down) ]
-then
-  exec $(docker-compose down)
-fi
-
-DANGLING_VOLUMES="$(docker volume ls -qf dangling=true)"
-if [ ${#DANGLING_VOLUMES} -gt 0 ]
-then
-  exec $(docker volume rm docker volume ls -qf dangling=true)
-fi
-
-exec docker-compose up --build
+docker-compose down && \
+docker volume rm django-docker-react_pgdata && \
+docker volume rm django-docker-react_backend && \
+docker volume rm django-docker-react_frontend && \
+docker-compose up --build --quiet-pull --abort-on-container-exit
