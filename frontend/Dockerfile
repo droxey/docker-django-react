@@ -1,15 +1,19 @@
-FROM node:latest
+FROM node:6.9.5
 
-# -- Setup environment variables.
-ENV DEBIAN_FRONTEND noninteractive
+# -- Create required folder structure in Docker container.
+RUN mkdir -p /code/frontend
+RUN mkdir /code/frontend/cache
 
-# -- Install bash.
-RUN apt-get update && apt-get install bash
-SHELL ["/bin/bash", "-c"]
-
-# -- Change directories and copy frontend code.
+# -- Create /code/frontend directory and add /frontend to it.
 WORKDIR /code/frontend
-COPY . /code/frontend
+ADD . /code/frontend
 
-# -- Install yarn.
-RUN npm install -g -s --no-progress yarn
+# -- Set appropriate node permissions on /frontend.
+RUN chown node:node -R .
+
+# -- Install yarn, set cache folder, install node_modules, and cleanup.
+RUN npm install -g -s --no-progress yarn && \
+    yarn config set cache-folder /code/frontend/cache && \
+    yarn install --silent --non-interactive && \
+    yarn cache clean && \
+    yarn run build

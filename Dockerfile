@@ -15,7 +15,7 @@ RUN apt-get install -y postgresql-client-10 --show-progress
 
 # -- Copy this directory to the `/code` folder in the Docker container,
 # -- then change directories to `/code` in the Docker container.
-COPY . /code
+ADD . /code
 WORKDIR /code
 
 # -- Install Python dependencies.

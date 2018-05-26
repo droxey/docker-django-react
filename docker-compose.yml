@@ -4,11 +4,9 @@
    db:
      container_name: dr_example_db
      hostname: dr_example_db
-     build: "deploy/postgres/"
+     build: "deploy/docker/postgres/"
      env_file: .env
      volumes:
-       - ./docker-entrypoint-initdb.d:/code/docker-entrypoint-initdb.d
-       - ./deploy/docker/db_shared:/code/deploy/docker/db_shared
        - pgdata:/var/lib/postgresql/data/ # Preserves db between runs.
      ports:
        - 5432
@@ -16,7 +14,7 @@
      container_name: dr_example_frontend
      hostname: dr_example_frontend
      build: "frontend/"
-     entrypoint: sh entrypoint.sh
+     command: sh /code/frontend/entrypoint.sh
      working_dir: /code/frontend
      ports:
        - 8101:3000
@@ -27,7 +25,7 @@
      hostname: dr_example_backend
      build: .
      command: sh /code/backend/entrypoint.sh
-     entrypoint: sh /code/deploy/postgres/wait-for-postgres.sh
+     entrypoint: sh /code/deploy/docker/postgres/wait-for-postgres.sh
      volumes:
        - .:/code
      env_file: .env
@@ -40,5 +38,6 @@
        - frontend
  volumes:
      backend:
+     frontend:
      pgdata:
 
