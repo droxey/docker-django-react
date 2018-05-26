@@ -26,7 +26,7 @@
      container_name: dr_example_backend
      hostname: dr_example_backend
      build: .
-     command: python manage.py runserver 0.0.0.0:8000
+     command: sh /code/backend/entrypoint.sh
      entrypoint: sh /code/deploy/postgres/wait-for-postgres.sh
      volumes:
        - .:/code

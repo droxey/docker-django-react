@@ -1,1 +1,1 @@
-docker-compose down && docker volume rm dr_example_pgdata && docker-compose up --build
+docker-compose down && docker volume rm dr_example_db_pgdata && docker-compose up --build
