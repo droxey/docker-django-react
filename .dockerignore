@@ -11,6 +11,9 @@ __pycache__
 # Secret environment settings
 .env
 env
+.env.sample
+local_settings.py.sample
+local_settings.py
 
 # Node and Webpack files
 node_modules
@@ -21,9 +24,16 @@ webpack-stats*
 staticfiles
 static_cdn
 media_cdn
+backend/static
+frontend/build
 
 # Ignore sqlite
 db.sqlite3
 
 # Apple files
 .DS_Store
+
+.vscode
+.gitignore
+.dockerignore
+README.md

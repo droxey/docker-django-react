@@ -18,10 +18,5 @@ class ReactAppView(View):
                 return HttpResponse(f.read())
         except FileNotFoundError:
             logging.exception('Production build of app not found')
-            return HttpResponse(
-                """
-                This URL is only used when you have built the production
-                version of the app. Visit http://localhost:3000/ instead, or
-                run `yarn run build` to test the production version.
-                """,
-                status=501)
+            return HttpResponse(f'<p>This URL is only used when you have built the production version of the app.<br>Try <a href="{settings.REACT_APP_URL[0]}">the dev frontend</a>, or run `yarn run build` to test the production version.</p>',
+                                status=501)

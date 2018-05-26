@@ -1,8 +1,5 @@
 {
   "name": "dr-frontend",
-  "config": {
-    "port": "8101"
-  },
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8000",
@@ -23,5 +20,8 @@
   "devDependencies": {
     "babel-preset-es2015": "6.24.1",
     "babel-preset-stage-3": "6.24.1"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
   }
 }

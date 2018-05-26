@@ -13,16 +13,17 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" >> /et
 RUN apt-get -qq update
 RUN apt-get install -y postgresql-client-10 --show-progress
 
-# -- Copy this directory to the `/code` folder in the Docker container,
-# -- then change directories to `/code` in the Docker container.
-ADD . /code
+# -- Create then change directories to `/code` in the Docker container.
+# -- Copy Pipfile (take advantage of caching)
 WORKDIR /code
+COPY Pipfile .
 
 # -- Install Python dependencies.
-RUN /bin/bash -c "rm Pipfile.lock"
 RUN /bin/bash -c "pip install --upgrade pip"
 RUN /bin/bash -c "pip install pipenv"
 RUN /bin/bash -c "pipenv install --system --skip-lock"
 
-# -- Change WORKDIR to ensure `manage.py` commands run in context via `docker-compose.yml`.
+# -- Add the project code and change WORKDIR to ensure
+# -- `manage.py` commands run in context via `docker-compose.yml`.
+ADD . /code
 WORKDIR /code/backend

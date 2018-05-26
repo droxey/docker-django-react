@@ -118,7 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.dirname(os.path.join(BASE_DIR, 'static'))
 
 # ===
 # docker-django-react: Custom Settings
@@ -133,7 +133,9 @@ REST_FRAMEWORK = {
 }
 
 REACT_APP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'frontend')
+REACT_APP_URL = os.getenv("REACT_APP_URL", default="http://0.0.0.0:8101"),
 
 STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
     os.path.join(REACT_APP_DIR, 'build', 'static'),
 ]
