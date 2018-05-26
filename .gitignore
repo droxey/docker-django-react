@@ -126,3 +126,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 frontend/cache
+
+backend/static/admin
+backend/static/rest_framework
