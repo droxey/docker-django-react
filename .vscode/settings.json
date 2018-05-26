@@ -1,0 +1,6 @@
+{
+  "python.venvPath": "${workspaceFolder}/.venv",
+  "python.envFile": "${workspaceFolder}/.env",
+  "yarn.packageJson": "${workspaceFolder}/frontend/package.json",
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python"
+}
