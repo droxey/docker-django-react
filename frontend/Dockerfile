@@ -12,5 +12,4 @@ RUN chown node:node -R .
 RUN npm install -g -s --no-progress yarn && \
     yarn config set cache-folder /code/frontend/cache && \
     yarn install --silent --non-interactive && \
-    yarn cache clean && \
-    yarn build
+    yarn cache clean
